@@ -8,7 +8,7 @@ public class MazeReaderTests {
     @Test
     public void should_read_maze_00_file_with_correct_values() {
         // Arrange / Act
-        String[] lines = MazeReader.Read("00");
+        String[] lines = MazeReader.Read("00_mini");
 
         // Assert
         assertThat(lines).hasSize(3);
@@ -20,7 +20,7 @@ public class MazeReaderTests {
     @Test
     public void should_read_maze_01_file_with_correct_values() {
         // Arrange / Act
-        String[] lines = MazeReader.Read("01");
+        String[] lines = MazeReader.Read("01_small");
 
         // Assert
         assertThat(lines).hasSize(7);
