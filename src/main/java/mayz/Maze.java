@@ -5,6 +5,10 @@ import processing.core.PConstants;
 public class Maze {
     String option;
 
+    int width;
+    int height;
+    int cellSize;
+
     int rows;
     int columns;
 
@@ -43,7 +47,12 @@ public class Maze {
     }
 
     public void setupCurrent() {
-        String[] lines = MazeReader.Read(option);
+        MazeData mazeData = MazeReader.Read(option);
+
+        width = mazeData.width;
+        height = mazeData.height;
+        cellSize = mazeData.cellSize;
+        String[] lines = mazeData.lines;
 
         rows = lines.length;
         columns = lines[0].length();

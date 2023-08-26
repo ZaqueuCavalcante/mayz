@@ -7,9 +7,8 @@ public class GameDebugMode extends Game {
         maze = new Maze("02_blue_pen");
         tree = new Tree(maze);
 
-        int[] mazeSizes = new int[] { 1500, 850, 10 };
-        size(mazeSizes[0], mazeSizes[1]);
-        CIZE = mazeSizes[2];
+        size(maze.width, maze.height);
+        CIZE = maze.cellSize;
     }
 
     public void draw() {

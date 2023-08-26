@@ -1,8 +1,8 @@
 package mayz;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Tree {
     Node root;
@@ -41,12 +41,12 @@ public class Tree {
         HashSet<Node> filteredNodes = new HashSet<>();
 
         int maxRow = levelNodes.values().stream()
-                .mapToInt(v -> v.row)
-                .max().getAsInt();
+            .mapToInt(v -> v.row)
+            .max().getAsInt();
 
         int maxColumn = levelNodes.values().stream()
-                .mapToInt(v -> v.column)
-                .max().getAsInt();
+            .mapToInt(v -> v.column)
+            .max().getAsInt();
 
         for (int row = 0; row <= maxRow; row++) {
             for (int column = maxColumn; column >= 0; column--) {
