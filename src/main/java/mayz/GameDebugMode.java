@@ -8,7 +8,7 @@ public class GameDebugMode extends Game {
         tree = new Tree(maze);
 
         size(maze.width, maze.height);
-        CIZE = maze.cellSize;
+        csz = maze.cellSize;
     }
 
     public void draw() {
@@ -20,14 +20,9 @@ public class GameDebugMode extends Game {
     }
 
     public void keyPressed() {
-        if (keyCode == 10) { // Enter
-            maze.showNeighbors = false;
-            goToNextStep();
+        if (keyCode == ENTER) {
+            tree.goToNextLevel(maze);
+            maze.shift();
         }
-    }
-
-    public void goToNextStep() {
-        tree.goToNextLevel(maze);
-        maze.shift();
     }
 }

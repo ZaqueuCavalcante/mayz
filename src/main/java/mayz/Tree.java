@@ -139,8 +139,8 @@ public class Tree {
         game.strokeWeight(2.50f);
 
         for (Node node : levelNodes.values()) {
-            float x1 = game.maze.startCell.column * game.CIZE + game.CIZE / 2;
-            float y1 = game.maze.startCell.row * game.CIZE + game.CIZE / 2;
+            float x1 = game.maze.startCell.column * game.csz + game.csz / 2;
+            float y1 = game.maze.startCell.row * game.csz + game.csz / 2;
             float x2 = 0;
             float y2 = 0;
 
@@ -153,18 +153,18 @@ public class Tree {
             for (String direction : path) {
                 if (direction.equals("U")) {
                     x2 = x1;
-                    y2 = y1 - game.CIZE;
+                    y2 = y1 - game.csz;
                 }
                 if (direction.equals("R")) {
-                    x2 = x1 + game.CIZE;
+                    x2 = x1 + game.csz;
                     y2 = y1;
                 }
                 if (direction.equals("D")) {
                     x2 = x1;
-                    y2 = y1 + game.CIZE;
+                    y2 = y1 + game.csz;
                 }
                 if (direction.equals("L")) {
-                    x2 = x1 - game.CIZE;
+                    x2 = x1 - game.csz;
                     y2 = y1;
                 }
 
@@ -174,7 +174,7 @@ public class Tree {
                 y1 = y2;
             }
 
-            game.circle(x2, y2, (float) (game.CIZE * 0.40));
+            game.circle(x2, y2, (float) (game.csz * 0.40));
         }
 
         game.strokeWeight(1);

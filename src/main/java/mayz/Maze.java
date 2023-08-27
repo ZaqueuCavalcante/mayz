@@ -89,6 +89,36 @@ public class Maze {
         return current[row][column] == CellType.EMPTY;
     }
 
+    public boolean isSolution(String path) {
+        int row = startCell.row;
+        int column = startCell.column;
+
+        for (char c : path.toCharArray()) {
+            shift();
+
+            String direction = String.valueOf(c).toString();
+
+            if (direction.equals("U")) {
+                row--;
+            }
+            if (direction.equals("R")) {
+                column++;
+            }
+            if (direction.equals("D")) {
+                row++;
+            }
+            if (direction.equals("L")) {
+                column--;
+            }
+
+            if (currentIsObstacle(row, column)) {
+                return false;
+            }
+        }
+
+        return row == endCell.row && column == endCell.column;
+    }
+
     private void calculateNeighbors() {
         currentNeighbors = new int[rows][columns];
 
@@ -287,7 +317,7 @@ public class Maze {
     }
 
     public void draw(Game game) {
-        game.translate(game.CIZE, game.CIZE);
+        game.translate(game.csz, game.csz);
 
         for (int row = 0; row < game.maze.rows; row++) {
             for (int column = 0; column < game.maze.columns; column++) {
@@ -308,7 +338,7 @@ public class Maze {
             game.fill(255, 255, 0);
         }
 
-        game.rect(column * game.CIZE, row * game.CIZE, game.CIZE, game.CIZE, game.CIZE / 4);
+        game.rect(column * game.csz, row * game.csz, game.csz, game.csz, game.csz / 4);
     }
 
     private void drawNeighbors(Game game, int row, int column) {
@@ -317,9 +347,9 @@ public class Maze {
         }
 
         int neighbors = currentNeighbors[row][column];
-        game.textSize((float) (game.CIZE * 0.40));
+        game.textSize((float) (game.csz * 0.40));
         game.textAlign(PConstants.CENTER);
         game.fill(0);
-        game.text(neighbors, column * game.CIZE + game.CIZE / 2, (float) ((row * game.CIZE) + game.CIZE * 0.65));
+        game.text(neighbors, column * game.csz + game.csz / 2, (float) ((row * game.csz) + game.csz * 0.65));
     }
 }
