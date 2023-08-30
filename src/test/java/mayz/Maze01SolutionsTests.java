@@ -19,6 +19,19 @@ public class Maze01SolutionsTests {
     }
 
     @Test
+    public void should_test_another_correct_solution_for_maze_01() {
+        // Arrange
+        Maze maze = new Maze("01_small");
+        String path = "DDDDDRRLUUURRRDRLDDRRDR";
+
+        // Act
+        boolean isSolution = maze.isSolution(path);
+
+        // Assert
+        assertThat(isSolution).isTrue();
+    }
+
+    @Test
     public void should_test_one_wrong_solution_for_maze_01() {
         // Arrange
         Maze maze = new Maze("01_small");
