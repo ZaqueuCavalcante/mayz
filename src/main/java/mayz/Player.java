@@ -14,6 +14,8 @@ public class Player {
     boolean isDead;
     boolean wonTheGame;
 
+    boolean showOptions;
+
     ArrayList<String> path;
 
     public Player(int row, int column) {
@@ -21,6 +23,7 @@ public class Player {
         this.column = column;
         isDead = false;
         wonTheGame = false;
+        showOptions = false;
         path = new ArrayList<String>();
     }
 
@@ -85,6 +88,8 @@ public class Player {
     }
 
     private void drawMoveOptions(Game game) {
+        if (!showOptions) { return; }
+
         float x = (float) (column * game.csz + game.csz / 2);
         float y = row * game.csz + game.csz / 2;
         float delta = game.csz / 2;

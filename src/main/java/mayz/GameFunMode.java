@@ -26,6 +26,10 @@ public class GameFunMode extends Game {
             return;
         }
 
+        if (keyCode == 90) {
+            player.showOptions = !player.showOptions;
+        }
+
         if (keyCode >= 37 && keyCode <= 40) {
             if (keyCode == 38 && player.row > 0) {
                 player.up();
