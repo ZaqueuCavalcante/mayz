@@ -26,24 +26,30 @@ public class GameFunMode extends Game {
             return;
         }
 
-        if (keyCode == 90) {
+        if (keyCode == O) {
             player.showOptions = !player.showOptions;
         }
 
+        if (keyCode == N) {
+            maze.showNeighbors = !maze.showNeighbors;
+        }
+
+        // System.out.println(keyCode);
+
         if (keyCode >= 37 && keyCode <= 40) {
-            if (keyCode == 38 && player.row > 0) {
+            if (keyCode == UP && player.row > 0) {
                 player.up();
                 updateMazeAndPlayer();
             }
-            if (keyCode == 39 && player.column < maze.columns - 1) {
+            if (keyCode == RIGHT && player.column < maze.columns - 1) {
                 player.right();
                 updateMazeAndPlayer();
             }
-            if (keyCode == 40 && player.row < maze.rows - 1) {
+            if (keyCode == DOWN && player.row < maze.rows - 1) {
                 player.down();
                 updateMazeAndPlayer();
             }
-            if (keyCode == 37 && player.column > 0) {
+            if (keyCode == LEFT && player.column > 0) {
                 player.left();
                 updateMazeAndPlayer();
             }
