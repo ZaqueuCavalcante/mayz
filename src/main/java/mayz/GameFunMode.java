@@ -4,7 +4,7 @@ public class GameFunMode extends Game {
     Player player;
 
     public void settings() {
-        maze = new Maze("01_small");
+        maze = new Maze("00_mini");
 
         player = new Player(maze.startCell.row, maze.startCell.column);
         player.updateMoveOptions(maze);
