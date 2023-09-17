@@ -8,5 +8,28 @@ public class Particle {
     int turn;
     int number;
 
+    String path;
+    int pathIndex;
 
+    boolean isInsideMaze;
+
+    public void move(int[][] ids) {
+        String direction = String.valueOf(path.charAt(pathIndex)).toString();
+
+        if (direction.equals("U")) {
+            row--;
+        }
+        if (direction.equals("R")) {
+            column++;
+        }
+        if (direction.equals("D")) {
+            row++;
+        }
+        if (direction.equals("L")) {
+            column--;
+        }
+
+        index = ids[row][column];
+        pathIndex++;
+    }
 }

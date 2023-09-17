@@ -17,14 +17,7 @@ public class Tree {
     boolean showPathsOnMaze;
 
     public Tree(Maze maze) {
-        int id = 0;
-        ids = new int[maze.rows][maze.columns];
-        for (int row = 0; row < maze.rows; row++) {
-            for (int column = 0; column < maze.columns; column++) {
-                ids[row][column] = id;
-                id++;
-            }
-        }
+        ids = MayzUtils.getIds(maze.rows, maze.columns);
 
         root = new Node(maze.startCell.row, maze.startCell.column, null, ids);
 

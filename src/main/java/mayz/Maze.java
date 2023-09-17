@@ -1,5 +1,8 @@
 package mayz;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import processing.core.PConstants;
 
 public class Maze {
@@ -21,10 +24,12 @@ public class Maze {
     int[][] currentNeighbors;
     boolean showNeighbors = false;
 
+    int turn;
+
     public Maze(String option) {
         this.option = option;
 
-        setupCurrent();
+        initialSetup();
 
         calculateNeighbors();
 
@@ -35,6 +40,7 @@ public class Maze {
         current = next;
         calculateNeighbors();
         calculateNext();
+        turn++;
     }
 
     public int[] getNextDirections(int row, int column) {
@@ -46,7 +52,7 @@ public class Maze {
         return new int[] { up, right, down, left };
     }
 
-    public void setupCurrent() {
+    private void initialSetup() {
         MazeData mazeData = MazeReader.Read(option);
 
         width = mazeData.width;
@@ -117,6 +123,51 @@ public class Maze {
         }
 
         return row == endCell.row && column == endCell.column;
+    }
+
+    public boolean isSolution(ArrayList<String> paths) {
+        // Turn -> Particles
+        HashMap<Integer, Particle> particles = MayzUtils.toParticleHashMap(paths);
+
+        int[][] ids = MayzUtils.getIds(rows, columns);
+        int endCellIndex = ids[endCell.row][endCell.column];
+
+        boolean hasCollision = false;
+
+        while (particles.size() > 0) {
+            Particle newParticle = particles.get(turn);
+            if (newParticle != null) {
+                newParticle.isInsideMaze = true;
+            }
+
+            for (Particle p : particles.values()){
+                if (p.isInsideMaze) {
+                    p.move(ids);
+                    hasCollision = currentIsObstacle(p.row, p.column);
+                }
+            }
+
+            if (hasCollision) { return false; }
+
+            hasCollision = !MayzUtils.areAllUnique(particles
+                .values().stream()
+                .filter(x -> x.isInsideMaze && x.index != endCellIndex)
+                .mapToInt(x -> x.index)
+                .boxed().toList()
+            );
+
+            if (hasCollision) { return false; }
+
+            for (Particle p : particles.values()){
+                if (p.isInsideMaze && p.index == endCellIndex) {
+                    p.isInsideMaze = false;
+                }
+            }
+
+            turn++;
+        }
+
+        return true;
     }
 
     private void calculateNeighbors() {
