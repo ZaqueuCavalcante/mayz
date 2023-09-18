@@ -32,4 +32,9 @@ public class Particle {
         index = ids[row][column];
         pathIndex++;
     }
+
+    public boolean hasMoves()
+    {
+        return pathIndex < path.length();
+    }
 }

@@ -134,13 +134,15 @@ public class Maze {
 
         boolean hasCollision = false;
 
-        while (particles.size() > 0) {
+        do {
             Particle newParticle = particles.get(turn);
             if (newParticle != null) {
                 newParticle.isInsideMaze = true;
             }
 
-            for (Particle p : particles.values()){
+            shift();
+
+            for (Particle p : particles.values()) {
                 if (p.isInsideMaze) {
                     p.move(ids);
                     hasCollision = currentIsObstacle(p.row, p.column);
@@ -158,13 +160,16 @@ public class Maze {
 
             if (hasCollision) { return false; }
 
-            for (Particle p : particles.values()){
+            for (Particle p : particles.values()) {
                 if (p.isInsideMaze && p.index == endCellIndex) {
                     p.isInsideMaze = false;
                 }
             }
+        }
+        while (!hasCollision && particles.values().stream().anyMatch(x -> x.isInsideMaze && x.hasMoves()));
 
-            turn++;
+        if (particles.values().stream().anyMatch(x -> x.isInsideMaze)) {
+            return false;
         }
 
         return true;
