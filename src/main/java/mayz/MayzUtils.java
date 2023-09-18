@@ -13,12 +13,13 @@ public final class MayzUtils {
 
         int count = 0;
         for (String path : paths) {
-            String turnAsString = path.split(" ")[0];
+            String[] splitedPath = path.split(" ");
+            String turnAsString = splitedPath[0];
 
             Particle p = new Particle();
             p.number = count;
             p.turn = Integer.parseInt(turnAsString);
-            p.path = path.split(" ")[1];
+            p.path = splitedPath.length == 2 ? splitedPath[1] : "";
             particles.put(p.turn, p);
             count++;
         }

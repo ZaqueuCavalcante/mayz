@@ -14,6 +14,8 @@ public class Particle {
     boolean isInsideMaze;
 
     public void move(int[][] ids) {
+        if (!hasMoves()) return;
+
         String direction = String.valueOf(path.charAt(pathIndex)).toString();
 
         if (direction.equals("U")) {
