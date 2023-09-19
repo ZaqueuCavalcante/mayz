@@ -6,7 +6,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        debugMode();
+        releaseMode();
     }
 
     public static void funMode() {

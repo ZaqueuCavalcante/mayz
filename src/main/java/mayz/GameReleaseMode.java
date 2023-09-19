@@ -13,7 +13,7 @@ import processing.core.PApplet;
 
 public class GameReleaseMode {
     public static void run() {
-        Maze maze = new Maze("03_mona_lisa");
+        Maze maze = new Maze("04_random");
         Tree tree = new Tree(maze);
 
         Instant start = Instant.now();
