@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.Test;
 
 public class NodeGetPathTests {
-    Maze maze = new Maze("01_small");
+    Maze maze = new Maze(Option.SMALL);
     Tree tree = new Tree(maze);
 
     @Test

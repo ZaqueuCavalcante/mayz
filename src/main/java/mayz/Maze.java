@@ -26,8 +26,8 @@ public class Maze {
 
     int turn;
 
-    public Maze(String option) {
-        this.option = option;
+    public Maze(Option option) {
+        this.option = option.getValue();
 
         initialSetup();
 
@@ -125,14 +125,21 @@ public class Maze {
         return row == endCell.row && column == endCell.column;
     }
 
+    // Turn -> Particles
+    HashMap<Integer, Particle> particles;
+
+    int[][] ids;
+    int endCellIndex;
+
+    boolean hasCollision;
+
     public boolean isSolution(ArrayList<String> paths) {
-        // Turn -> Particles
-        HashMap<Integer, Particle> particles = MayzUtils.toParticleHashMap(paths);
+        particles = MayzUtils.toParticleHashMap(paths);
 
-        int[][] ids = MayzUtils.getIds(rows, columns);
-        int endCellIndex = ids[endCell.row][endCell.column];
+        ids = MayzUtils.getIds(rows, columns);
+        endCellIndex = ids[endCell.row][endCell.column];
 
-        boolean hasCollision = false;
+        hasCollision = false;
 
         do {
             Particle newParticle = particles.get(turn);
@@ -173,6 +180,58 @@ public class Maze {
         }
 
         return true;
+    }
+
+    public void setupReplay(ArrayList<String> paths) {
+        particles = MayzUtils.toParticleHashMap(paths);
+
+        particles.values().stream().forEach(x -> x.index = -1);
+
+        particles.values().iterator().next().index = 0;
+
+        ids = MayzUtils.getIds(rows, columns);
+        endCellIndex = ids[endCell.row][endCell.column];
+
+        hasCollision = false;
+    }
+
+    public void replay() {
+        Particle newParticle = particles.get(turn);
+        if (newParticle != null) {
+            newParticle.isInsideMaze = true;
+        }
+
+        shift();
+
+        for (Particle p : particles.values()) {
+            if (p.isInsideMaze) {
+                p.move(ids);
+                hasCollision = currentIsObstacle(p.row, p.column);
+            }
+        }
+
+        if (hasCollision) { System.out.println("COLLISION!!!"); }
+
+        hasCollision = !MayzUtils.areAllUnique(particles
+            .values().stream()
+            .filter(x -> x.isInsideMaze && x.index != endCellIndex)
+            .mapToInt(x -> x.index)
+            .boxed().toList()
+        );
+
+        if (hasCollision) { System.out.println("COLLISION!!!"); }
+
+        for (Particle p : particles.values()) {
+            if (p.isInsideMaze && p.index == endCellIndex) {
+                p.isInsideMaze = false;
+            }
+        }
+
+        if (particles.values().stream().anyMatch(x -> x.isInsideMaze)) {
+            System.out.println("PAROU NO MEI!!!");
+        }
+
+        System.out.println("EH TETRAAA!!!");
     }
 
     private void calculateNeighbors() {
@@ -381,6 +440,10 @@ public class Maze {
                 drawNeighbors(game, row, column);
             }
         }
+
+        for (Particle particle : particles.values()) {
+            drawParticle(game, particle);
+        }
     }
 
     private void drawCells(Game game, int row, int column) {
@@ -395,6 +458,23 @@ public class Maze {
         }
 
         game.rect(column * game.csz, row * game.csz, game.csz, game.csz, game.csz / 4);
+    }
+
+    private void drawParticle(Game game, Particle particle) {
+        boolean start = particle.index == 0;
+        boolean end = particle.index == endCellIndex;
+        if (!particle.isInsideMaze && !start && !end) {
+            return;
+        }
+
+        game.fill(255, 0, 0);
+        game.circle(particle.column * game.csz + game.csz / 2, particle.row * game.csz + game.csz / 2, game.csz / 2);
+
+        game.textSize((float) (game.csz * 0.35));
+        game.textAlign(PConstants.CENTER);
+        game.fill(0);
+        game.text(particle.turn, (float) (particle.column * game.csz + game.csz * 0.48),
+                (float) ((particle.row * game.csz) + game.csz * 0.63));
     }
 
     private void drawNeighbors(Game game, int row, int column) {

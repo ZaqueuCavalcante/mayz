@@ -6,7 +6,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        releaseMode();
+        replayMode();
     }
 
     public static void funMode() {
@@ -19,5 +19,9 @@ public class App
 
     public static void releaseMode() {
         GameReleaseMode.run();
+    }
+
+    public static void replayMode() {
+        PApplet.main(new String[] { "mayz.GameReplayMode" });
     }
 }

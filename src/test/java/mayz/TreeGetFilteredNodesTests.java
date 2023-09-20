@@ -10,7 +10,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_root_node() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -25,7 +25,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_01_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(1, maze);
@@ -43,7 +43,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_02_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(2, maze);
@@ -62,7 +62,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_03_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(3, maze);
@@ -82,7 +82,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_04_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(4, maze);
@@ -103,7 +103,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_05_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(5, maze);
@@ -122,7 +122,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_06_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(6, maze);
@@ -145,7 +145,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_07_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(7, maze);
@@ -167,7 +167,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_08_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(8, maze);
@@ -187,7 +187,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_09_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(9, maze);
@@ -208,7 +208,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_10_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(10, maze);
@@ -230,7 +230,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_11_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(11, maze);
@@ -249,7 +249,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_12_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(12, maze);
@@ -271,7 +271,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_13_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(13, maze);
@@ -294,7 +294,7 @@ public class TreeGetFilteredNodesTests {
     @Test
     public void should_filter_the_level_14_nodes() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         tree.goToLevel(14, maze);

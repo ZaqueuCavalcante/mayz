@@ -10,7 +10,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_correct_solution_for_maze_00() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
         String path = "DUDDRUDRR";
 
         // Act
@@ -23,7 +23,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_correct_solution_for_maze_00() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
         String path = "DDUURDRRD";
 
         // Act
@@ -36,7 +36,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
         String path = "DUDDRUDRL";
 
         // Act
@@ -49,7 +49,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00_with_2_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DD");
@@ -65,7 +65,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_wrong_solution_for_maze_00_with_2_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUURDRRD");
@@ -81,7 +81,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_wrong_solution_for_maze_00_with_2_particles_with_particles_collision() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDU");
@@ -97,7 +97,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_wrong_solution_for_maze_00_with_2_particles_without_collisions() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DD");
@@ -113,7 +113,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_wrong_solution_for_maze_00_with_2_particles_with_static_particle_above_empty() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 D");
@@ -129,7 +129,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_wrong_solution_for_maze_00_with_2_particles_with_static_particle_above_abstacle() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDU");
@@ -145,7 +145,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_wrong_solution_for_maze_00_with_2_particles_without_collisions_and_one_comes_to_maze_end_cell() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUURDRRD");
@@ -161,7 +161,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_correct_solution_for_maze_00_with_2_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUURDRRD");
@@ -177,7 +177,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_another_correct_solution_for_maze_00_with_2_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUDRUDRR");
@@ -193,7 +193,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00_with_3_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDU");
@@ -210,7 +210,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00_with_3_particles_with_particle_collision() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDU");
@@ -227,7 +227,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_correct_solution_for_maze_00_with_3_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUDRUDRR");
@@ -244,7 +244,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00_with_4_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUDR");
@@ -262,7 +262,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00_with_4_particles_with_particle_collision() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUDU");
@@ -280,7 +280,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_correct_solution_for_maze_00_with_4_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUDRURRD");
@@ -298,7 +298,7 @@ public class Maze00SolutionsTests {
     @Test
     public void should_test_one_wrong_solution_for_maze_00_with_5_particles() {
         // Arrange
-        Maze maze = new Maze("00_mini");
+        Maze maze = new Maze(Option.MINI);
 
         ArrayList<String> paths = new ArrayList<>();
         paths.add("0 DDUDR");

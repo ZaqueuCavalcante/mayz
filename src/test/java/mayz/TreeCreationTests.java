@@ -8,7 +8,7 @@ public class TreeCreationTests {
     @Test
     public void should_create_a_new_tree_with_correct_values() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
 
         // Act
         Tree tree = new Tree(maze);
@@ -24,7 +24,7 @@ public class TreeCreationTests {
     @Test
     public void should_create_a_new_tree_with_correct_nodes_ids_values() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
 
         // Act
         Tree tree = new Tree(maze);

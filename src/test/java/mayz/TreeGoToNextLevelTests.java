@@ -8,7 +8,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_start_at_root_node() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act / Assert
@@ -19,7 +19,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_01() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -34,7 +34,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_02() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -51,7 +51,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_03() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -69,7 +69,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_04() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -87,7 +87,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_05() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -104,7 +104,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_06() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
@@ -127,7 +127,7 @@ public class TreeGoToNextLevelTests {
     @Test
     public void should_expand_to_the_level_07() {
         // Arrange
-        Maze maze = new Maze("01_small");
+        Maze maze = new Maze(Option.SMALL);
         Tree tree = new Tree(maze);
 
         // Act
