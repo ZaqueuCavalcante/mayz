@@ -26,10 +26,10 @@ public class Maze {
 
     int turn;
 
-    boolean isStatic = false;
+    private boolean isStatic = false;
 
     // Turn -> Particles
-    HashMap<Integer, Particle> particles;
+    HashMap<Integer, Particle> particles = new HashMap<Integer, Particle>();
 
     int[][] ids;
     int endCellIndex;
@@ -37,6 +37,15 @@ public class Maze {
     boolean hasCollision;
 
     public Maze(Option option) {
+        New(option);
+    }
+
+    public Maze(Option option, boolean isStatic) {
+        this.isStatic = isStatic;
+        New(option);
+    }
+
+    private void New(Option option) {
         this.option = option.getValue();
 
         initialSetup();
