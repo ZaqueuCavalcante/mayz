@@ -6,7 +6,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        replayMode();
+        funMode();
     }
 
     public static void funMode() {

@@ -26,6 +26,16 @@ public class Maze {
 
     int turn;
 
+    boolean isStatic = false;
+
+    // Turn -> Particles
+    HashMap<Integer, Particle> particles;
+
+    int[][] ids;
+    int endCellIndex;
+
+    boolean hasCollision;
+
     public Maze(Option option) {
         this.option = option.getValue();
 
@@ -34,13 +44,18 @@ public class Maze {
         calculateNeighbors();
 
         calculateNext();
+
+        if (isStatic) next = current;
     }
 
     public void shift() {
+        turn++;
+
+        if (isStatic) return;
+
         current = next;
         calculateNeighbors();
         calculateNext();
-        turn++;
     }
 
     public int[] getNextDirections(int row, int column) {
@@ -124,14 +139,6 @@ public class Maze {
 
         return row == endCell.row && column == endCell.column;
     }
-
-    // Turn -> Particles
-    HashMap<Integer, Particle> particles;
-
-    int[][] ids;
-    int endCellIndex;
-
-    boolean hasCollision;
 
     public boolean isSolution(ArrayList<String> paths) {
         particles = MayzUtils.toParticleHashMap(paths);

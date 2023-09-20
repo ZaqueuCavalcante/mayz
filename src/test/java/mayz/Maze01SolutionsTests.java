@@ -18,6 +18,20 @@ public class Maze01SolutionsTests {
         assertThat(isSolution).isTrue();
     }
 
+    //@Test
+    public void should_test_one_correct_solution_for_maze_01_static_mode() {
+        // Arrange
+        Maze maze = new Maze(Option.SMALL);
+        maze.isStatic = true;
+        String path = "DDDDDDRRRRRR";
+
+        // Act
+        boolean isSolution = maze.isSolution(path);
+
+        // Assert
+        assertThat(isSolution).isTrue();
+    }
+
     @Test
     public void should_test_another_correct_solution_for_maze_01() {
         // Arrange
