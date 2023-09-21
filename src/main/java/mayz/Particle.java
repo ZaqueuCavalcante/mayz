@@ -13,8 +13,15 @@ public class Particle {
 
     boolean isInsideMaze;
 
+    float rowForDraw;
+    float columnForDraw;
+    float vx;
+    float vy;
     public void move(int[][] ids) {
         if (!hasMoves()) return;
+
+        rowForDraw = row;
+        columnForDraw = column;
 
         String direction = String.valueOf(path.charAt(pathIndex)).toString();
 
@@ -29,6 +36,13 @@ public class Particle {
         }
         if (direction.equals("L")) {
             column--;
+        }
+
+        if (column != columnForDraw) {
+            vx = column > columnForDraw ? 0.05f : -0.05f;
+        }
+        if (row != rowForDraw) {
+            vy = row > rowForDraw ? 0.05f : -0.05f;
         }
 
         index = ids[row][column];

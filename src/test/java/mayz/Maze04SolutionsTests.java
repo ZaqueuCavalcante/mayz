@@ -31,8 +31,8 @@ public class Maze04SolutionsTests {
         assertThat(isSolution).isFalse();
     }
 
-    //@Test
-    public void should_test_solution_for_maze_04_with_2_particles() {
+    @Test
+    public void should_test_one_wrong_solution_for_maze_04_with_2_particles() {
         // Arrange
         Maze maze = new Maze(Option.RANDOM);
         ArrayList<String> paths = new ArrayList<>();
@@ -43,6 +43,6 @@ public class Maze04SolutionsTests {
         boolean isSolution = maze.isSolution(paths);
 
         // Assert
-        assertThat(isSolution).isTrue();
+        assertThat(isSolution).isFalse();
     }
 }

@@ -172,7 +172,9 @@ public class Maze {
                 }
             }
 
-            if (hasCollision) { return false; }
+            if (hasCollision) {
+                return false;
+            }
 
             hasCollision = !MayzUtils.areAllUnique(particles
                 .values().stream()
@@ -181,7 +183,9 @@ public class Maze {
                 .boxed().toList()
             );
 
-            if (hasCollision) { return false; }
+            if (hasCollision) {
+                return false;
+            }
 
             for (Particle p : particles.values()) {
                 if (p.isInsideMaze && p.index == endCellIndex) {
@@ -483,14 +487,32 @@ public class Maze {
             return;
         }
 
+        boolean toRight = particle.vx > 0 && particle.columnForDraw + particle.vx > particle.column;
+        boolean toLeft = particle.vx < 0 && particle.columnForDraw + particle.vx < particle.column;
+        if (toRight || toLeft) {
+            particle.vx = 0;
+        } else {
+            particle.columnForDraw = particle.columnForDraw + particle.vx;
+        }
+        float x = particle.columnForDraw * game.csz + game.csz / 2;
+
+        boolean toDown = particle.vy > 0 && particle.rowForDraw + particle.vy > particle.row;
+        boolean toUp = particle.vy < 0 && particle.rowForDraw + particle.vy < particle.row;
+        if (toDown || toUp) {
+            particle.vy = 0;
+        } else {
+            particle.rowForDraw = particle.rowForDraw + particle.vy;
+        }
+        float y = particle.rowForDraw * game.csz + game.csz / 2;
+
         game.fill(255, 0, 0);
-        game.circle(particle.column * game.csz + game.csz / 2, particle.row * game.csz + game.csz / 2, game.csz / 2);
+        game.circle(x, y, game.csz / 2);
 
         game.textSize((float) (game.csz * 0.35));
         game.textAlign(PConstants.CENTER);
         game.fill(0);
-        game.text(particle.turn, (float) (particle.column * game.csz + game.csz * 0.48),
-                (float) ((particle.row * game.csz) + game.csz * 0.63));
+        game.text(particle.turn, (float) (particle.columnForDraw * game.csz + game.csz * 0.48),
+                (float) ((particle.rowForDraw * game.csz) + game.csz * 0.63));
     }
 
     private void drawNeighbors(Game game, int row, int column) {

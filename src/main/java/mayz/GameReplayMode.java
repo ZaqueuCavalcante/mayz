@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GameReplayMode extends Game {
     public void settings() {
-        maze = new Maze(Option.SMALL);
+        maze = new Maze(Option.RANDOM);
         size(maze.width, maze.height);
         csz = maze.cellSize;
 
