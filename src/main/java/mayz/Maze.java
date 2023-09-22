@@ -67,6 +67,15 @@ public class Maze {
         calculateNext();
     }
 
+    public int[] getDirections(int row, int column) {
+        int up = ((row - 1) >= 0 && current[row - 1][column] != CellType.OBSTACLE) ? 1 : 0;
+        int right = ((column + 1) < columns && current[row][column + 1] != CellType.OBSTACLE) ? 1 : 0;
+        int down = ((row + 1) < rows && current[row + 1][column] != CellType.OBSTACLE) ? 1 : 0;
+        int left = ((column - 1) >= 0 && current[row][column - 1] != CellType.OBSTACLE) ? 1 : 0;
+
+        return new int[] { up, right, down, left };
+    }
+
     public int[] getNextDirections(int row, int column) {
         int up = ((row - 1) >= 0 && next[row - 1][column] != CellType.OBSTACLE) ? 1 : 0;
         int right = ((column + 1) < columns && next[row][column + 1] != CellType.OBSTACLE) ? 1 : 0;
@@ -167,7 +176,7 @@ public class Maze {
 
             for (Particle p : particles.values()) {
                 if (p.isInsideMaze) {
-                    p.move(ids);
+                    p.pathMove(ids);
                     hasCollision = currentIsObstacle(p.row, p.column);
                 }
             }
@@ -225,12 +234,12 @@ public class Maze {
 
         for (Particle p : particles.values()) {
             if (p.isInsideMaze) {
-                p.move(ids);
+                p.pathMove(ids);
                 hasCollision = currentIsObstacle(p.row, p.column);
             }
         }
 
-        if (hasCollision) { System.out.println("COLLISION!!!"); }
+        if (hasCollision) { System.out.println("COLLISION"); }
 
         hasCollision = !MayzUtils.areAllUnique(particles
             .values().stream()
@@ -239,7 +248,7 @@ public class Maze {
             .boxed().toList()
         );
 
-        if (hasCollision) { System.out.println("COLLISION!!!"); }
+        if (hasCollision) { System.out.println("COLLISION"); }
 
         for (Particle p : particles.values()) {
             if (p.isInsideMaze && p.index == endCellIndex) {
@@ -248,10 +257,8 @@ public class Maze {
         }
 
         if (particles.values().stream().anyMatch(x -> x.isInsideMaze)) {
-            System.out.println("PAROU NO MEI!!!");
+            System.out.println("STUCKED");
         }
-
-        System.out.println("EH TETRAAA!!!");
     }
 
     private void calculateNeighbors() {
@@ -462,7 +469,7 @@ public class Maze {
         }
 
         for (Particle particle : particles.values()) {
-            drawParticle(game, particle);
+            particle.draw(game, endCellIndex);
         }
     }
 
@@ -478,41 +485,6 @@ public class Maze {
         }
 
         game.rect(column * game.csz, row * game.csz, game.csz, game.csz, game.csz / 4);
-    }
-
-    private void drawParticle(Game game, Particle particle) {
-        boolean start = particle.index == 0;
-        boolean end = particle.index == endCellIndex;
-        if (!particle.isInsideMaze && !start && !end) {
-            return;
-        }
-
-        boolean toRight = particle.vx > 0 && particle.columnForDraw + particle.vx > particle.column;
-        boolean toLeft = particle.vx < 0 && particle.columnForDraw + particle.vx < particle.column;
-        if (toRight || toLeft) {
-            particle.vx = 0;
-        } else {
-            particle.columnForDraw = particle.columnForDraw + particle.vx;
-        }
-        float x = particle.columnForDraw * game.csz + game.csz / 2;
-
-        boolean toDown = particle.vy > 0 && particle.rowForDraw + particle.vy > particle.row;
-        boolean toUp = particle.vy < 0 && particle.rowForDraw + particle.vy < particle.row;
-        if (toDown || toUp) {
-            particle.vy = 0;
-        } else {
-            particle.rowForDraw = particle.rowForDraw + particle.vy;
-        }
-        float y = particle.rowForDraw * game.csz + game.csz / 2;
-
-        game.fill(255, 0, 0);
-        game.circle(x, y, game.csz / 2);
-
-        game.textSize((float) (game.csz * 0.35));
-        game.textAlign(PConstants.CENTER);
-        game.fill(0);
-        game.text(particle.turn, (float) (particle.columnForDraw * game.csz + game.csz * 0.48),
-                (float) ((particle.rowForDraw * game.csz) + game.csz * 0.63));
     }
 
     private void drawNeighbors(Game game, int row, int column) {

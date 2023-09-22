@@ -4,7 +4,7 @@ public class GameFunMode extends Game {
     Player player;
 
     public void settings() {
-        maze = new Maze(Option.SMALL, true);
+        maze = new Maze(Option.EMPTY, true);
 
         player = new Player(maze.startCell.row, maze.startCell.column);
         player.updateMoveOptions(maze);
@@ -33,8 +33,6 @@ public class GameFunMode extends Game {
         if (keyCode == N) {
             maze.showNeighbors = !maze.showNeighbors;
         }
-
-        // System.out.println(keyCode);
 
         if (keyCode >= 37 && keyCode <= 40) {
             if (keyCode == UP && player.row > 0) {

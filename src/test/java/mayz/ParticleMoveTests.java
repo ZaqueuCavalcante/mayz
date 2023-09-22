@@ -14,7 +14,7 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(1);
@@ -32,8 +32,8 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(2);
@@ -51,9 +51,9 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(1);
@@ -71,10 +71,10 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(0);
@@ -92,11 +92,11 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(0);
@@ -114,12 +114,12 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(1);
@@ -137,13 +137,13 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(1);
@@ -161,14 +161,14 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(1);
@@ -186,15 +186,15 @@ public class ParticleMoveTests {
         int[][] ids = MayzUtils.getIds(3, 4);
 
         // Act
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
-        particle.move(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
+        particle.pathMove(ids);
 
         // Assert
         assertThat(particle.row).isEqualTo(2);
