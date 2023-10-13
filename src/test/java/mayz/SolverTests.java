@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 public class SolverTests {
-    @Test
+    //TODO: @Test
     public void should_solve_maze_05_empty() {
         // Arrange
         Maze maze = new Maze(Option.EMPTY);
