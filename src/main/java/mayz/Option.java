@@ -9,7 +9,6 @@ public enum Option {
     EMPTY("05_empty"),
     PAC_MAN("06_pac_man");
 
- 
     private String value;
  
     Option(String value) {

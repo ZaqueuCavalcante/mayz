@@ -4,10 +4,8 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
-
 public class SolverTests {
-    //TODO: @Test
+    //@Test
     public void should_solve_maze_05_empty() {
         // Arrange
         Maze maze = new Maze(Option.EMPTY);
