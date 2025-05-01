@@ -21,9 +21,19 @@ Vamos alterar o estado das células ao longo do tempo, utilizando as seguintes r
 - As células cinza com 2 ou 3 vizinhos azúis viram azúis na próxima geração.
 - As células azúis com 4 ou 5 ou 6 vizinhos azúis permanecem azúis. Do contrário, viram cinza.
 
+Aplicando essas regras à cada célula do tabuleiro, chegamos no seguinte estado:
+
 <p align="center">
   <img src="https://github.com/ZaqueuCavalcante/mayz/blob/master/docs/02_example_maze_gen_01.png?raw=true" style="display: block; margin: 0 auto" />
 </p>
+
+E se continuarmos aplicando as regras a cada nova geração, vamos ver que os padrões complexos citados lá no início começam a emergir no tabuleiro:
+
+<p align="center">
+  <img src="https://github.com/ZaqueuCavalcante/mayz/blob/master/docs/03_example_maze_generations.gif?raw=true" style="display: block; margin: 0 auto" />
+</p>
+
+
 
 
 
