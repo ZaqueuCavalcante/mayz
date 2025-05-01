@@ -2,6 +2,7 @@ package mayz;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 import processing.core.PConstants;
 
@@ -189,7 +190,7 @@ public class Maze {
                 .values().stream()
                 .filter(x -> x.isInsideMaze && x.index != endCellIndex)
                 .mapToInt(x -> x.index)
-                .boxed().toList()
+                .boxed().collect(Collectors.toList())
             );
 
             if (hasCollision) {
@@ -245,7 +246,7 @@ public class Maze {
             .values().stream()
             .filter(x -> x.isInsideMaze && x.index != endCellIndex)
             .mapToInt(x -> x.index)
-            .boxed().toList()
+            .boxed().collect(Collectors.toList())
         );
 
         if (hasCollision) { System.out.println("COLLISION"); }

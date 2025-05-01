@@ -2,6 +2,7 @@ package mayz;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Solver {
     public static ArrayList<String> it(Maze maze) {
@@ -15,8 +16,8 @@ public class Solver {
         int count = 0;
 
         do {
-            // 0 - Inicio do turno
-            // Vai entrar alguma particula nesse turno?
+            // 0 - Início do turno
+            // Vai entrar alguma partícula nesse turno?
             Particle newParticle = new Particle();
             newParticle.isInsideMaze = true;
             newParticle.number = count;
@@ -44,7 +45,7 @@ public class Solver {
                 .values().stream()
                 .filter(x -> x.isInsideMaze && x.index != endCellIndex)
                 .mapToInt(x -> x.index)
-                .boxed().toList()
+                .boxed().collect(Collectors.toList())
             );
 
             if (hasCollision) { System.out.println("COLLISION"); }
