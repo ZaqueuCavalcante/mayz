@@ -18,7 +18,7 @@ public class GameFunMode extends Game {
         fill(255);
         stroke(0);
         maze.draw(this);
-        player.draw(this);
+        // player.draw(this);
     }
 
     public void keyPressed() {

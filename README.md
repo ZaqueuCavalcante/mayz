@@ -4,12 +4,24 @@ Um **autômato celular** é um modelo matemático e computacional que descreve c
 
 Meio abstrato né, vamos pegar um exemplo para entender melhor.
 
-Considere o tabuleiro a seguir, que possui 7 linhas e 8 colunas.
-
+Considere o tabuleiro a seguir, que possui 7 linhas e 8 colunas. Nele, as células azúis estão ativas, já as de cor cinza estão inativas.
 
 <p align="center">
   <img src="https://github.com/ZaqueuCavalcante/mayz/blob/master/docs/00_example_maze.png?raw=true" style="display: block; margin: 0 auto" />
 </p>
+
+Vamos alterar o estado das células ao longo do tempo, utilizando as seguintes regras:
+
+- As células cinza com 2 ou 3 vizinhos azúis viram azúis na próxima geração.
+- As células azúis com 4 ou 5 ou 6 vizinhos azúis permanecem azúis. Do contrário, viram cinza.
+
+Veja a quantidade de vizinhos azúis de cada célula a seguir (cada célula pode ter até no máximo 8 vizinhos azúis):
+
+<p align="center">
+  <img src="https://github.com/ZaqueuCavalcante/mayz/blob/master/docs/01_example_maze_neighbors_count.png?raw=true" style="display: block; margin: 0 auto" />
+</p>
+
+
 
 
 
