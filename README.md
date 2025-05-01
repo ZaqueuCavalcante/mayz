@@ -8,7 +8,7 @@ Considere o tabuleiro a seguir, que possui 7 linhas e 8 colunas.
 
 
 <p align="center">
-  <img src="https://github.com/ZaqueuCavalcante/syki/blob/master/Posts/000DomainEvents/clean_async_processing.gif?raw=true" style="display: block; margin: 0 auto" />
+  <img src="https://github.com/ZaqueuCavalcante/mayz/blob/master/docs/00_example_maze.png?raw=true" style="display: block; margin: 0 auto" />
 </p>
 
 
