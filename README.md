@@ -1,6 +1,4 @@
-# MAYZ
-
-## ꡌ‍ Pathfinding com labirinto dinâmico: Autômatos Celulares + Árvores na prática! 🌳
+# ꡌ‍ Pathfinding com labirinto dinâmico: Autômatos Celulares + Árvores na prática! 🌳
 
 No labirinto a seguir, é trivial sair do canto superior esquerdo e chegar no canto inferior direito:
 
@@ -20,9 +18,7 @@ E em labirintos maiores? Têm como resolver com a menor quantidade possível de 
   <img src="docs/03_PacMan.gif" style="display: block; margin: 0 auto" />
 </p>
 
----------------------------------------------------------------------------------------------------
-
-Vamos voltar pro começo: o que isso tem haver com Autômatos Celulares e Árvores?
+## Vamos voltar pro começo: o que isso tem haver com Autômatos Celulares e Árvores?
 
 Bem, esse labirinto dinâmico é um **Autômato Celular** e o algoritmo que encontra o caminho até a saída utiliza como base uma **Árvore** para otimizar a busca da solução!
 
@@ -39,19 +35,23 @@ A seguir podemos ver a árvore sendo formada. Nela, cada bolinha verde é um nó
   <img src="docs/04_Tree.gif" style="display: block; margin: 0 auto" />
 </p>
 
-Se você quiser se aprofundar mais no projeto, ele conta com 4 modos de jogo:
+## Se você quiser se aprofundar mais no projeto, ele conta com 4 modos de jogo:
 
-- **Fun**: você pode jogar manualmente usando o teclado (além de poder ativar/desativar a exibição de quantidade de vizinhos + hints de próximo estado)
+### Fun
+
+Você pode jogar manualmente usando o teclado (além de poder ativar/desativar a exibição de quantidade de vizinhos + hints de próximo estado):
 
 <p align="center">
   <img src="docs/05_FunMode.gif" style="display: block; margin: 0 auto" />
 </p>
 
-- **Debug**: você pode ver o algoritmo rodando passo a passo (controlando a execução via teclado)
+### Debug
 
-Bem útil para entender como o algoritmo funciona.
+Você pode ver o algoritmo rodando passo a passo (controlando a execução via teclado). Bem útil para entender como o algoritmo funciona.
 
-- **Replay**: é possível fazer a bolinha verde seguir uma sequência de movimentos informada:
+### Replay
+
+É possível fazer a bolinha verde seguir uma sequência de movimentos informada:
 
 Um caminho pode ser representado como uma sequência de movimentos (Up, Right, Down, Left).
 
@@ -63,7 +63,9 @@ Exemplo: DDDDDRRLUUURRRDRLDDRRDR
   <img src="docs/06_Replay.gif" style="display: block; margin: 0 auto" />
 </p>
 
-- **Release**: para labirintos gigantes onde queremos apenas a solução final, sem ficar renderizando na tela cada movimento
+### Release
+
+Para labirintos gigantes onde queremos apenas a solução final, sem ficar renderizando na tela cada movimento.
 
 Gerei alguns tabuleiros com estado inicial aleatório (e tamanhos cada vez maiores) pra ver:
 
