@@ -4,7 +4,7 @@ public class GameDebugMode extends Game {
     Tree tree;
 
     public void settings() {
-        maze = new Maze(Option.PAC_MAN);
+        maze = new Maze(Option.SMALL);
         tree = new Tree(maze);
 
         size(maze.width, maze.height);
