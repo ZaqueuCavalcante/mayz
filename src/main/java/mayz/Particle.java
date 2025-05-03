@@ -97,16 +97,16 @@ public class Particle {
         }
         float y = rowForDraw * game.csz + game.csz / 2;
 
-        game.fill(255, 0, 0);
+        game.fill(34, 139, 34);
         game.circle(x, y, game.csz / 2);
 
-        game.textSize((float) (game.csz * 0.35));
-        game.textAlign(PConstants.CENTER);
-        game.fill(0);
-        game.text(
-            turn,
-            (float) (columnForDraw * game.csz + game.csz * 0.48),
-            (float) ((rowForDraw * game.csz) + game.csz * 0.63)
-        );
+        // game.textSize((float) (game.csz * 0.35));
+        // game.textAlign(PConstants.CENTER);
+        // game.fill(0);
+        // game.text(
+        //     turn,
+        //     (float) (columnForDraw * game.csz + game.csz * 0.48),
+        //     (float) ((rowForDraw * game.csz) + game.csz * 0.63)
+        // );
     }
 }

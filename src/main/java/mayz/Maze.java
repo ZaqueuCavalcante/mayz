@@ -482,8 +482,7 @@ public class Maze {
             game.fill(0, 80, 255);
         }
         if (game.maze.currentIsStart(row, column) || game.maze.currentIsEnd(row, column)) {
-            game.fill(200);
-            // game.fill(255, 255, 0);
+            game.fill(255, 255, 0);
         }
 
         game.rect(column * game.csz, row * game.csz, game.csz, game.csz, game.csz / 4);
