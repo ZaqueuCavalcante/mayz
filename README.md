@@ -18,7 +18,7 @@ E em labirintos maiores? Têm como resolver com a menor quantidade possível de 
   <img src="docs/03_PacMan.gif" style="display: block; margin: 0 auto" />
 </p>
 
-## Vamos voltar pro começo: o que isso tem haver com Autômatos Celulares e Árvores?
+## O que isso tem haver com Autômatos Celulares e Árvores?
 
 Bem, esse labirinto dinâmico é um **Autômato Celular** e o algoritmo que encontra o caminho até a saída utiliza como base uma **Árvore** para otimizar a busca da solução!
 
@@ -35,7 +35,7 @@ A seguir podemos ver a árvore sendo formada. Nela, cada bolinha verde é um nó
   <img src="docs/04_Tree.gif" style="display: block; margin: 0 auto" />
 </p>
 
-## Se você quiser se aprofundar mais no projeto, ele conta com 4 modos de jogo:
+## O projeto conta ainda com 4 modos de jogo:
 
 ### Fun
 
@@ -80,12 +80,12 @@ Gerei alguns tabuleiros com estado inicial aleatório (e tamanhos cada vez maior
 | 100.000 x 100.000     |       |      |
 | 1.000.000 x 1.000.000 |       |      |
 
-O projeto conta ainda com mais de 100 casos de teste, pois utilizei o TDD durante grande parte da implementação.
+O projeto conta ainda com mais de 100 casos de teste, pois utilizei o TDD durante grande parte da implementação:
 
 <p align="center">
   <img src="docs/07_Tests.gif" style="display: block; margin: 0 auto" />
 </p>
 
-Se quiser ver como implementei tudo isso, acesse o projeto no GitHub: https://github.com/ZaqueuCavalcante/mayz
+Código completo no GitHub: https://github.com/ZaqueuCavalcante/mayz
 
-> Encontrei esse problema em um desafio da Stone anos atrás, que coordenado pelo pessoal da Sigma Geek.
+> Encontrei esse problema em um desafio da Stone anos atrás, que foi coordenado pelo pessoal da Sigma Geek.
