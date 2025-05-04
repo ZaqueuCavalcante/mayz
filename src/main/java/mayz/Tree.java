@@ -14,8 +14,6 @@ public class Tree {
 
     int[][] ids;
 
-    boolean showPathsOnMaze;
-
     public Tree(Maze maze) {
         ids = MayzUtils.getIds(maze.rows, maze.columns);
 
@@ -26,8 +24,6 @@ public class Tree {
         levelNodes.put(root.id, root);
 
         solutions = new HashSet<>();
-
-        showPathsOnMaze = true;
     }
 
     public HashSet<Node> getFilteredNodes() {
@@ -36,7 +32,6 @@ public class Tree {
         int maxRow = levelNodes.values().stream()
             .mapToInt(v -> v.row)
             .max().getAsInt();
-
         int maxColumn = levelNodes.values().stream()
             .mapToInt(v -> v.column)
             .max().getAsInt();
@@ -56,12 +51,6 @@ public class Tree {
 
         for (int column = 0; column <= maxColumn; column++) {
             for (int row = maxRow; row >= 0; row--) {
-                boolean nodeAlreadyFiltered = filteredNodes.contains(new Node(row, column, null, ids));
-                if (nodeAlreadyFiltered) {
-                    row = -1;
-                    continue;
-                }
-
                 Node node = levelNodes.getOrDefault(ids[row][column], null);
 
                 if (node == null) {
@@ -122,10 +111,6 @@ public class Tree {
     }
 
     public void drawPathsOnMaze(Game game) {
-        if (!showPathsOnMaze) {
-            return;
-        }
-
         game.fill(34, 139, 34);
         game.stroke(34, 139, 34);
 

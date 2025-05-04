@@ -37,20 +37,19 @@ public class GameFunMode extends Game {
         if (keyCode >= 37 && keyCode <= 40) {
             if (keyCode == UP && player.row > 0) {
                 player.up();
-                updateMazeAndPlayer();
             }
             if (keyCode == RIGHT && player.column < maze.columns - 1) {
                 player.right();
-                updateMazeAndPlayer();
             }
             if (keyCode == DOWN && player.row < maze.rows - 1) {
                 player.down();
-                updateMazeAndPlayer();
             }
             if (keyCode == LEFT && player.column > 0) {
                 player.left();
-                updateMazeAndPlayer();
             }
+            
+            maze.shift();
+            player.updateMoveOptions(maze);
 
             if (maze.currentIsObstacle(player.row, player.column)) {
                 player.die();
@@ -60,10 +59,5 @@ public class GameFunMode extends Game {
                 player.win();
             }
         }
-    }
-
-    private void updateMazeAndPlayer() {
-        maze.shift();
-        player.updateMoveOptions(maze);
     }
 }

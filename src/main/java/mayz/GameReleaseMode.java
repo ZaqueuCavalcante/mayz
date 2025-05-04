@@ -13,7 +13,7 @@ import processing.core.PApplet;
 
 public class GameReleaseMode {
     public static void run() {
-        Maze maze = new Maze(Option.PAC_MAN);
+        Maze maze = new Maze(Option.RANDOM5000x5000);
         Tree tree = new Tree(maze);
 
         Instant start = Instant.now();
@@ -21,6 +21,10 @@ public class GameReleaseMode {
         while (tree.solutions.size() == 0) {
             tree.goToNextLevel(maze);
             maze.shift();
+
+            if (tree.level % 5 == 0) {
+                System.out.println("Level: " + tree.level + " | Nodes: " + tree.levelNodes.size() + " | Filtered nodes: " + tree.getFilteredNodes().size());
+            }
         }
 
         long duration = Duration.between(start, Instant.now()).toMillis();

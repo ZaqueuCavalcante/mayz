@@ -1,9 +1,5 @@
 package mayz;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.stream.Collectors;
-
 import processing.core.PConstants;
 
 public class Maze {
@@ -29,13 +25,8 @@ public class Maze {
 
     private boolean isStatic = false;
 
-    // Turn -> Particles
-    HashMap<Integer, Particle> particles = new HashMap<Integer, Particle>();
-
     int[][] ids;
     int endCellIndex;
-
-    boolean hasCollision;
 
     public Maze(Option option) {
         New(option);
@@ -56,34 +47,6 @@ public class Maze {
         calculateNext();
 
         if (isStatic) next = current;
-    }
-
-    public void shift() {
-        turn++;
-
-        if (isStatic) return;
-
-        current = next;
-        calculateNeighbors();
-        calculateNext();
-    }
-
-    public int[] getDirections(int row, int column) {
-        int up = ((row - 1) >= 0 && current[row - 1][column] != CellType.OBSTACLE) ? 1 : 0;
-        int right = ((column + 1) < columns && current[row][column + 1] != CellType.OBSTACLE) ? 1 : 0;
-        int down = ((row + 1) < rows && current[row + 1][column] != CellType.OBSTACLE) ? 1 : 0;
-        int left = ((column - 1) >= 0 && current[row][column - 1] != CellType.OBSTACLE) ? 1 : 0;
-
-        return new int[] { up, right, down, left };
-    }
-
-    public int[] getNextDirections(int row, int column) {
-        int up = ((row - 1) >= 0 && next[row - 1][column] != CellType.OBSTACLE) ? 1 : 0;
-        int right = ((column + 1) < columns && next[row][column + 1] != CellType.OBSTACLE) ? 1 : 0;
-        int down = ((row + 1) < rows && next[row + 1][column] != CellType.OBSTACLE) ? 1 : 0;
-        int left = ((column - 1) >= 0 && next[row][column - 1] != CellType.OBSTACLE) ? 1 : 0;
-
-        return new int[] { up, right, down, left };
     }
 
     private void initialSetup() {
@@ -127,139 +90,6 @@ public class Maze {
 
     public boolean currentIsEmpty(int row, int column) {
         return current[row][column] == CellType.EMPTY;
-    }
-
-    public boolean isSolution(String path) {
-        int row = startCell.row;
-        int column = startCell.column;
-
-        for (char c : path.toCharArray()) {
-            shift();
-
-            String direction = String.valueOf(c).toString();
-
-            if (direction.equals("U")) {
-                row--;
-            }
-            if (direction.equals("R")) {
-                column++;
-            }
-            if (direction.equals("D")) {
-                row++;
-            }
-            if (direction.equals("L")) {
-                column--;
-            }
-
-            if (currentIsObstacle(row, column)) {
-                return false;
-            }
-        }
-
-        return row == endCell.row && column == endCell.column;
-    }
-
-    public boolean isSolution(ArrayList<String> paths) {
-        particles = MayzUtils.toParticleHashMap(paths);
-
-        ids = MayzUtils.getIds(rows, columns);
-        endCellIndex = ids[endCell.row][endCell.column];
-
-        hasCollision = false;
-
-        do {
-            Particle newParticle = particles.get(turn);
-            if (newParticle != null) {
-                newParticle.isInsideMaze = true;
-            }
-
-            shift();
-
-            for (Particle p : particles.values()) {
-                if (p.isInsideMaze) {
-                    p.pathMove(ids);
-                    hasCollision = currentIsObstacle(p.row, p.column);
-                }
-            }
-
-            if (hasCollision) {
-                return false;
-            }
-
-            hasCollision = !MayzUtils.areAllUnique(particles
-                .values().stream()
-                .filter(x -> x.isInsideMaze && x.index != endCellIndex)
-                .mapToInt(x -> x.index)
-                .boxed().collect(Collectors.toList())
-            );
-
-            if (hasCollision) {
-                return false;
-            }
-
-            for (Particle p : particles.values()) {
-                if (p.isInsideMaze && p.index == endCellIndex) {
-                    p.isInsideMaze = false;
-                }
-            }
-        }
-        while (!hasCollision && particles.values().stream().anyMatch(x -> x.isInsideMaze && x.hasMoves()));
-
-        if (particles.values().stream().anyMatch(x -> x.isInsideMaze)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public void setupReplay(ArrayList<String> paths) {
-        particles = MayzUtils.toParticleHashMap(paths);
-
-        particles.values().stream().forEach(x -> x.index = -1);
-
-        particles.values().iterator().next().index = 0;
-
-        ids = MayzUtils.getIds(rows, columns);
-        endCellIndex = ids[endCell.row][endCell.column];
-
-        hasCollision = false;
-    }
-
-    public void replay() {
-        Particle newParticle = particles.get(turn);
-        if (newParticle != null) {
-            newParticle.isInsideMaze = true;
-        }
-
-        shift();
-
-        for (Particle p : particles.values()) {
-            if (p.isInsideMaze) {
-                p.pathMove(ids);
-                hasCollision = currentIsObstacle(p.row, p.column);
-            }
-        }
-
-        if (hasCollision) { System.out.println("COLLISION"); }
-
-        hasCollision = !MayzUtils.areAllUnique(particles
-            .values().stream()
-            .filter(x -> x.isInsideMaze && x.index != endCellIndex)
-            .mapToInt(x -> x.index)
-            .boxed().collect(Collectors.toList())
-        );
-
-        if (hasCollision) { System.out.println("COLLISION"); }
-
-        for (Particle p : particles.values()) {
-            if (p.isInsideMaze && p.index == endCellIndex) {
-                p.isInsideMaze = false;
-            }
-        }
-
-        if (particles.values().stream().anyMatch(x -> x.isInsideMaze)) {
-            System.out.println("STUCKED");
-        }
     }
 
     private void calculateNeighbors() {
@@ -459,6 +289,55 @@ public class Maze {
         }
     }
 
+    public void shift() {
+        turn++;
+
+        if (isStatic) return;
+
+        current = next;
+        calculateNeighbors();
+        calculateNext();
+    }
+
+    public int[] getNextDirections(int row, int column) {
+        int up = ((row - 1) >= 0 && next[row - 1][column] != CellType.OBSTACLE) ? 1 : 0;
+        int right = ((column + 1) < columns && next[row][column + 1] != CellType.OBSTACLE) ? 1 : 0;
+        int down = ((row + 1) < rows && next[row + 1][column] != CellType.OBSTACLE) ? 1 : 0;
+        int left = ((column - 1) >= 0 && next[row][column - 1] != CellType.OBSTACLE) ? 1 : 0;
+
+        return new int[] { up, right, down, left };
+    }
+    
+    public boolean isSolution(String path) {
+        int row = startCell.row;
+        int column = startCell.column;
+
+        for (char c : path.toCharArray()) {
+            shift();
+
+            String direction = String.valueOf(c).toString();
+
+            if (direction.equals("U")) {
+                row--;
+            }
+            if (direction.equals("R")) {
+                column++;
+            }
+            if (direction.equals("D")) {
+                row++;
+            }
+            if (direction.equals("L")) {
+                column--;
+            }
+
+            if (currentIsObstacle(row, column)) {
+                return false;
+            }
+        }
+
+        return row == endCell.row && column == endCell.column;
+    }
+
     public void draw(Game game) {
         game.translate(game.csz, game.csz);
 
@@ -467,10 +346,6 @@ public class Maze {
                 drawCells(game, row, column);
                 drawNeighbors(game, row, column);
             }
-        }
-
-        for (Particle particle : particles.values()) {
-            particle.draw(game, endCellIndex);
         }
     }
 

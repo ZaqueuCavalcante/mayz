@@ -35,7 +35,7 @@ A seguir podemos ver a árvore sendo formada. Nela, cada bolinha verde é um nó
   <img src="docs/04_Tree.gif" style="display: block; margin: 0 auto" />
 </p>
 
-## O projeto conta ainda com 4 modos de jogo:
+## O projeto conta ainda com 3 modos de jogo:
 
 ### Fun
 
@@ -49,18 +49,8 @@ Você pode jogar manualmente usando o teclado (além de poder ativar/desativar a
 
 Você pode ver o algoritmo rodando passo a passo (controlando a execução via teclado). Bem útil para entender como o algoritmo funciona.
 
-### Replay
-
-É possível fazer a bolinha verde seguir uma sequência de movimentos informada:
-
-Um caminho pode ser representado como uma sequência de movimentos (Up, Right, Down, Left).
-
-Logo, podemos usar um caminho como input e fazer a bolinha seguir ele (funcionando como um replay de uma partida anterior).
-
-Exemplo: DDDDDRRLUUURRRDRLDDRRDR
-
 <p align="center">
-  <img src="docs/06_Replay.gif" style="display: block; margin: 0 auto" />
+  <img src="docs/06_Debug.gif" style="display: block; margin: 0 auto" />
 </p>
 
 ### Release
@@ -72,13 +62,13 @@ Gerei alguns tabuleiros com estado inicial aleatório (e tamanhos cada vez maior
 - Quantos movimentos são necessários para chegar na saída
 - Quanto tempo leva pro algoritmo encontrar a solução
 
-| Size                  | Moves | Time |
-|-----------------------|-------|------|
-| 100 x 100             |       |      |
-| 1.000 x 1.000         |       |      |
-| 10.000 x 10.000       |       |      |
-| 100.000 x 100.000     |       |      |
-| 1.000.000 x 1.000.000 |       |      |
+| Size                  | Moves | Time   |
+|-----------------------|-------|--------|
+| 100 x 100             | 276   | 97 ms  |
+| 500 x 500             | 1.376 | 4,1 s  |
+| 1.000 x 1.000         | 2.776 | 34,2 s |
+| 5.000 x 5.000         |       |        |
+| 10.000 x 10.000       |       |        |
 
 O projeto conta ainda com mais de 100 casos de teste, pois utilizei o TDD durante grande parte da implementação:
 
