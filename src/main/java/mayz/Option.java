@@ -10,9 +10,7 @@ public enum Option {
     PAC_MAN("06_pac_man"),
     RANDOM100x100("07_random_100x100"),
     RANDOM500x500("08_random_500x500"),
-    RANDOM1000x1000("09_random_1000x1000"),
-    RANDOM5000x5000("10_random_5000x5000"),
-    RANDOM10000x10000("11_random_10000x10000");
+    RANDOM1000x1000("09_random_1000x1000");
 
     private String value;
 
