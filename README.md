@@ -62,11 +62,14 @@ Gerei alguns tabuleiros com estado inicial aleatório (e tamanhos cada vez maior
 - Quantos movimentos são necessários para chegar na saída
 - Quanto tempo leva pro algoritmo encontrar a solução
 
-| Size                  | Moves | Time   |
-|-----------------------|-------|--------|
-| 100 x 100             | 276   | 97 ms  |
-| 500 x 500             | 1.376 | 4,1 s  |
-| 1.000 x 1.000         | 2.776 | 34,2 s |
+| Size          | Moves | Time    |
+|---------------|-------|---------|
+| 100 x 100     | 276   | 97 ms   |
+| 500 x 500     | 1.376 | 4,1 s   |
+| 1.000 x 1.000 | 2.776 | 34,2 s  |
+| 1.500 x 1.500 | 4.174 | 2,5 min |
+
+
 
 O projeto conta ainda com mais de 80 casos de teste, pois utilizei o TDD durante grande parte da implementação:
 

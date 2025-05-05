@@ -11,7 +11,7 @@ import processing.core.PApplet;
 
 public class RandomMazeGenerator {
     public static void run() {
-        int size = 5_000;
+        int size = 1_500;
         ArrayList<String> lines = new ArrayList<>();
         lines.add("1000 1000 10");
 
@@ -21,16 +21,16 @@ public class RandomMazeGenerator {
             StringBuilder line = new StringBuilder(size*2);
             for (int j = 0; j < size; j++) {
                 if (r.nextInt(100) < 25) {
-                    line.append("1 ");
+                    line.append("1");
                 } else {
-                    line.append("0 ");
+                    line.append("0");
                 }
             }
             lines.add(line.toString().trim());
         }
 
         lines.set(1, "3" + lines.get(1).substring(1));
-        lines.set(size, lines.get(size).substring(0, 2*size-2) + "4");
+        lines.set(size, lines.get(size).substring(0, size-1) + "4");
 
         String fileName = "src/main/java/mayz/data/maze_" + size + "x" + size + ".txt";
         File file = new File(fileName);
