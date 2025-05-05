@@ -11,7 +11,8 @@ public enum Option {
     RANDOM100x100("07_random_100x100"),
     RANDOM500x500("08_random_500x500"),
     RANDOM1000x1000("09_random_1000x1000"),
-    RANDOM1500x1500("10_random_1500x1500");
+    RANDOM1500x1500("10_random_1500x1500"),
+    RANDOM2000x2000("11_random_2000x2000");
 
     private String value;
 

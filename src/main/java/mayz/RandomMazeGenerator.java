@@ -11,7 +11,7 @@ import processing.core.PApplet;
 
 public class RandomMazeGenerator {
     public static void run() {
-        int size = 1_500;
+        int size = 2_000;
         ArrayList<String> lines = new ArrayList<>();
         lines.add("1000 1000 10");
 

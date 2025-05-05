@@ -68,8 +68,7 @@ Gerei alguns tabuleiros com estado inicial aleatório (e tamanhos cada vez maior
 | 500 x 500     | 1.376 | 4,1 s   |
 | 1.000 x 1.000 | 2.776 | 34,2 s  |
 | 1.500 x 1.500 | 4.174 | 2,5 min |
-
-
+| 2.000 x 2.000 | 5.506 | 5,2 min |
 
 O projeto conta ainda com mais de 80 casos de teste, pois utilizei o TDD durante grande parte da implementação:
 
